@@ -1,0 +1,5 @@
+#!/bin/bash 
+
+## vol="$(pactl get-sink-volume | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+vol= "$( pactl get-sink-volume alsa_output.pci-0000_00_09.2.analog-stereo | grep '%' | head -n 1 | cut -d '/' -f 2 | cut -d '%' -f 1)"
+echo "${vol}% volume "
